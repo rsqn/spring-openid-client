@@ -17,7 +17,7 @@ How do I use this?
  <dependency>
     <groupId>tech.rsqn</groupId>
     <artifactId>spring-openid-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
  </dependency>
 ```
 
