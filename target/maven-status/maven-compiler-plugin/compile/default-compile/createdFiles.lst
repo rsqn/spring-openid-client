@@ -1,0 +1,13 @@
+tech/rsqn/utils/jjst/servlets/AbstractContentServlet.class
+tech/rsqn/utils/jjst/servlets/JavascriptAggregationServlet.class
+tech/rsqn/springopenidclient/OAuth2ClientConfigurer.class
+tech/rsqn/utils/jjst/servlets/CssAggregationServlet.class
+tech/rsqn/utils/jjst/util/ResourceUtil.class
+tech/rsqn/utils/jjst/servlets/TemplateServlet.class
+tech/rsqn/utils/jjst/servlets/JavascriptSourceServlet.class
+tech/rsqn/springopenidclient/OAuth2UserInfo.class
+tech/rsqn/utils/jjst/util/JavaScriptMinifier.class
+tech/rsqn/springopenidclient/OpenIDConnectAuthenticationFilter.class
+tech/rsqn/utils/jjst/filters/DevOnlyCORSFilter.class
+tech/rsqn/springopenidclient/OAuth2WebSecurityConfigurer.class
+tech/rsqn/utils/jjst/servlets/AbstractAggregationServlet.class
