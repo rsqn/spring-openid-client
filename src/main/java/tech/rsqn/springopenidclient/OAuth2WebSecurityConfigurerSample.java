@@ -11,20 +11,20 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.authentication.preauth.AbstractPreAuthenticatedProcessingFilter;
 
-@Configuration
-@EnableWebSecurity
-public class OAuth2WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
+//@Configuration
+//@EnableWebSecurity
+public class OAuth2WebSecurityConfigurerSample extends WebSecurityConfigurerAdapter {
 
-    private final String LOGIN_URL = "/login";
+    private final String CALLBACK_URL = "/callback";
 
     @Bean
     public AuthenticationEntryPoint authenticationEntryPoint() {
-        return new LoginUrlAuthenticationEntryPoint(LOGIN_URL);
+        return new LoginUrlAuthenticationEntryPoint(CALLBACK_URL);
     }
 
     @Bean
     public OpenIDConnectAuthenticationFilter openIdConnectAuthenticationFilter() {
-        return new OpenIDConnectAuthenticationFilter(LOGIN_URL);
+        return new OpenIDConnectAuthenticationFilter(CALLBACK_URL);
     }
 
     @Bean

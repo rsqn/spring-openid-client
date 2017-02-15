@@ -37,10 +37,50 @@ oauth2.scope=trust,openid
 oauth2.authenticationScheme=header
 ```
 
+### Create a web security configuration class like this in your project
+```
+    
+@Configuration
+@EnableWebSecurity
+public class OAuth2WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
+
+    private final String CALLBACK_URL = "/callback";
+
+    @Bean
+    public AuthenticationEntryPoint authenticationEntryPoint() {
+        return new LoginUrlAuthenticationEntryPoint(CALLBACK_URL);
+    }
+
+    @Bean
+    public OpenIDConnectAuthenticationFilter openIdConnectAuthenticationFilter() {
+        return new OpenIDConnectAuthenticationFilter(CALLBACK_URL);
+    }
+
+    @Bean
+    public OAuth2ClientContextFilter oAuth2ClientContextFilter() {
+        return new OAuth2ClientContextFilter();
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.addFilterAfter(oAuth2ClientContextFilter(), AbstractPreAuthenticatedProcessingFilter.class)
+                .addFilterAfter(openIdConnectAuthenticationFilter(), OAuth2ClientContextFilter.class)
+                .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint())
+                .and().authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/unprotected").permitAll()
+                .antMatchers(HttpMethod.GET, "/*").authenticated();
+    }
+}
+
+```
+
+
 ### Ensure this is in your spring config
 ```
     <context:annotation-config/>
     <context:component-scan base-package="tech.rsqn.springopenidclient" />
+    <context:component-scan base-package="THE_PACKAGE_YOU_HAVE_THE_ABOVE_CONFIGURATION_CLASS_IN" />
+
 ```
 
 ... aaaand it should work
