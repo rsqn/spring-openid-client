@@ -27,6 +27,8 @@ public class OpenIDConnectAuthenticationFilter extends AbstractAuthenticationPro
 
     public OpenIDConnectAuthenticationFilter(String defaultFilterProcessesUrl) {
         super(defaultFilterProcessesUrl);
+        logger.info("FilterProcessesUrl is " + this.getFilterProcessesUrl());
+
         setAuthenticationManager(authentication -> authentication);
     }
 
@@ -34,6 +36,7 @@ public class OpenIDConnectAuthenticationFilter extends AbstractAuthenticationPro
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
             throws AuthenticationException, IOException, ServletException {
         final ResponseEntity<OAuth2UserInfo> userInfoResponseEntity = restOperations.getForEntity(userInfoUri, OAuth2UserInfo.class);
+        logger.debug("ResponseEntity " + userInfoResponseEntity);
         return new PreAuthenticatedAuthenticationToken(userInfoResponseEntity.getBody(), empty(), NO_AUTHORITIES);
 
     }

@@ -17,7 +17,7 @@ How do I use this?
  <dependency>
     <groupId>tech.rsqn</groupId>
     <artifactId>spring-openid-client</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
  </dependency>
 ```
 
@@ -44,16 +44,16 @@ oauth2.authenticationScheme=header
 @EnableWebSecurity
 public class OAuth2WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
-    private final String CALLBACK_URL = "/callback";
+    private final String AUTH_URI = "/app_auth";
 
     @Bean
     public AuthenticationEntryPoint authenticationEntryPoint() {
-        return new LoginUrlAuthenticationEntryPoint(CALLBACK_URL);
+        return new LoginUrlAuthenticationEntryPoint(AUTH_URI);
     }
 
     @Bean
     public OpenIDConnectAuthenticationFilter openIdConnectAuthenticationFilter() {
-        return new OpenIDConnectAuthenticationFilter(CALLBACK_URL);
+        return new OpenIDConnectAuthenticationFilter(AUTH_URI);
     }
 
     @Bean

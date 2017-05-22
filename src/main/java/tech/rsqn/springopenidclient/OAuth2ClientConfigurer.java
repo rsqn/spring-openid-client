@@ -62,7 +62,7 @@ public class OAuth2ClientConfigurer {
         return l;
     }
 
-    @SuppressWarnings("SpringJavaAutowiringInspection") // Provided by Spring Boot
+    @SuppressWarnings("SpringJavaAutowiringInspection")
     @Resource
     private OAuth2ClientContext oAuth2ClientContext;
 

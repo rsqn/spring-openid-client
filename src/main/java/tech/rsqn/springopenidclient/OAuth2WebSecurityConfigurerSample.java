@@ -13,16 +13,16 @@ import org.springframework.security.web.authentication.preauth.AbstractPreAuthen
 //@EnableWebSecurity
 public class OAuth2WebSecurityConfigurerSample extends WebSecurityConfigurerAdapter {
 
-    private final String CALLBACK_URL = "/callback";
+    private final String AUTH_URI = "/app_auth";
 
     @Bean
     public AuthenticationEntryPoint authenticationEntryPoint() {
-        return new LoginUrlAuthenticationEntryPoint(CALLBACK_URL);
+        return new LoginUrlAuthenticationEntryPoint(AUTH_URI);
     }
 
     @Bean
     public OpenIDConnectAuthenticationFilter openIdConnectAuthenticationFilter() {
-        return new OpenIDConnectAuthenticationFilter(CALLBACK_URL);
+        return new OpenIDConnectAuthenticationFilter(AUTH_URI);
     }
 
     @Bean
