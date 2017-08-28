@@ -3,7 +3,9 @@ package tech.rsqn.springopenidclient;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class OAuth2UserInfo {
+import java.security.Principal;
+
+public class OAuth2UserInfo implements Principal {
     private String id;
     private String name;
     private String picture;
@@ -37,5 +39,15 @@ public class OAuth2UserInfo {
 
     public String getLink() {
         return link;
+    }
+
+    @Override
+    public String toString() {
+        return "OAuth2UserInfo{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", picture='" + picture + '\'' +
+                ", link='" + link + '\'' +
+                '}';
     }
 }
