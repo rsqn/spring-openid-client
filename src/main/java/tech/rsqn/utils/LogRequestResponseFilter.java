@@ -37,11 +37,10 @@ public class LogRequestResponseFilter implements ClientHttpRequestInterceptor {
         logger.debug("request method : " + request.getMethod());
         logger.debug("request body : " + getRequestBody(body));
 
-        for (String hn : request.getHeaders().keySet()   ) {
+        for (String hn : request.getHeaders().keySet()) {
             List<String> v = request.getHeaders().get(hn);
             for (String vl : v) {
-                logger.debug("request header : (" + hn + ") : (" + vl  +')');
-
+                logger.debug("request header : (" + hn + ") : (" + vl + ')');
             }
         }
     }
@@ -56,32 +55,8 @@ public class LogRequestResponseFilter implements ClientHttpRequestInterceptor {
 
 
     private void traceResponse(ClientHttpResponse response) throws IOException {
-//        String body = getBodyString(response);
         logger.debug("response status code: " + response.getStatusCode());
         logger.debug("response status text: " + response.getStatusText());
-//        logger.debug("response body : " + body);
     }
-
-//    private String getBodyString(ClientHttpResponse response) {
-//        try {
-//            if (response != null && response.getBody() != null) {// &&
-//                // isReadableResponse(response))
-//                // {
-//                StringBuilder inputStringBuilder = new StringBuilder();
-//                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response.getBody(), StandardCharsets.UTF_8));
-//                String line = bufferedReader.readLine();
-//                while (line != null) {
-//                    inputStringBuilder.append(line);
-//                    inputStringBuilder.append('\n');
-//                    line = bufferedReader.readLine();
-//                }
-//                return inputStringBuilder.toString();
-//            } else {
-//                return null;
-//            }
-//        } catch (IOException e) {
-//            logger.error(e.getMessage(), e);
-//            return null;
-//        }
-//    }
 }
+
