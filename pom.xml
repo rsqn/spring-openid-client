@@ -9,7 +9,7 @@
 
     <groupId>tech.rsqn</groupId>
     <artifactId>spring-openid-client</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Spring OpenID Client</name>
@@ -36,7 +36,7 @@
         <connection>scm:git:git@github.com:rsqn/spring-openid-client.git</connection>
         <developerConnection>scm:git:git@github.com:rsqn/spring-openid-client.git</developerConnection>
         <url>https://github.com/rsqn/spring-openid-client</url>
-        <tag>spring-openid-client-1.0.7</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
