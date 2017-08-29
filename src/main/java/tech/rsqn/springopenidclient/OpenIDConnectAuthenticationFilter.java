@@ -13,8 +13,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
-import static java.util.Optional.empty;
 import static org.springframework.security.core.authority.AuthorityUtils.NO_AUTHORITIES;
 
 public class OpenIDConnectAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
@@ -37,7 +37,7 @@ public class OpenIDConnectAuthenticationFilter extends AbstractAuthenticationPro
             throws AuthenticationException, IOException, ServletException {
         final ResponseEntity<OAuth2UserInfo> userInfoResponseEntity = restOperations.getForEntity(userInfoUri, OAuth2UserInfo.class);
         logger.debug("ResponseEntity " + userInfoResponseEntity);
-        return new PreAuthenticatedAuthenticationToken(userInfoResponseEntity.getBody(), empty(), NO_AUTHORITIES);
+        return new PreAuthenticatedAuthenticationToken(userInfoResponseEntity.getBody(), new ArrayList(), NO_AUTHORITIES);
 
     }
 }
