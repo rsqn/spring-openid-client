@@ -51,8 +51,11 @@ public class OAuth2ClientConfigurer {
     @Value("${oauth2.authenticationScheme}")
     private String authenticationScheme;
 
-    @Value("${oauth2.enableDebugging}")
-    private boolean enableDebugging;
+    private boolean enableDebugging = false;
+
+    public void toggleDebugging(boolean v) {
+        enableDebugging = v;
+    }
 
     @Bean
     public OAuth2ProtectedResourceDetails getAuth2ClientDetails() {
