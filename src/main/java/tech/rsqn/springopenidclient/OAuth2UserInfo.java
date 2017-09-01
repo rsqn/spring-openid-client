@@ -3,9 +3,10 @@ package tech.rsqn.springopenidclient;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.security.Principal;
 
-public class OAuth2UserInfo implements Principal {
+public class OAuth2UserInfo implements Principal, Serializable {
     private String id;
     private String name;
     private String picture;
