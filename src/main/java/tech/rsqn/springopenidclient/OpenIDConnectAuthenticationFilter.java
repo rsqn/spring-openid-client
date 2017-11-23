@@ -27,8 +27,6 @@ public class OpenIDConnectAuthenticationFilter extends AbstractAuthenticationPro
 
     public OpenIDConnectAuthenticationFilter(String defaultFilterProcessesUrl) {
         super(defaultFilterProcessesUrl);
-        logger.info("FilterProcessesUrl is " + this.getFilterProcessesUrl());
-
         setAuthenticationManager(authentication -> authentication);
     }
 
